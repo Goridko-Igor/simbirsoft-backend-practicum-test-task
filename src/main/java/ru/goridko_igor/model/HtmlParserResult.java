@@ -14,7 +14,7 @@ public class HtmlParserResult {
     public HtmlParserResult(int id, String urlAddress) {
         this.id = id;
         this.urlAddress = urlAddress;
-        List<WordCount> wordsCount = new ArrayList<>();
+        this.wordsCount = new ArrayList<>();
     }
 
     public int getId() {
