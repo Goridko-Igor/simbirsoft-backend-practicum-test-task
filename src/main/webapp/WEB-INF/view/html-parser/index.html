@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML-анализатор</title>
+</head>
+
+<body>
+
+<h2>HTML-анализатор</h2>
+
+<hr/>
+
+<form th:method="POST" th:action="@{/html-parser/result}" th:object="${htmlParserResult}">
+    <label for="urlAddress">URL-address HTML-page: </label>
+    <input type="text" th:field="*{urlAddress}" id="urlAddress"/>
+    <br/>
+    <input type="submit" value="Произвести анализ HTML-страницы"/>
+</form>
+
+</body>
+
+</html>

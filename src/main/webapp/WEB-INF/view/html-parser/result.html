@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML-анализатор</title>
+</head>
+
+<body>
+
+<h2>HTML-анализатор</h2>
+
+<hr/>
+
+<p th:text="${htmlParserResult.getUrlAddress()}"></p>
+
+<br/>
+
+<div th:each="wordCount : ${htmlParserResult.getWordsCount()}">
+    <p th:text="${wordCount.getWord()} - ${wordCount.getCount()}"></p>
+</div>
+
+</body>
+
+</html>
