@@ -9,6 +9,7 @@ public class HtmlParserResult {
     private List<WordCount> wordsCount;
 
     public HtmlParserResult() {
+        this.wordsCount = new ArrayList<>();
     }
 
     public HtmlParserResult(int id, String urlAddress) {
