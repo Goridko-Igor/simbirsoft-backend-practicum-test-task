@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML-анализатор</title>
+</head>
+
+<body>
+
+<h2>HTML-анализатор</h2>
+
+<hr/>
+
+<p>
+    <a th:href="@{/html-parser}">Вернуться на Главную страницу</a>
+</p>
+
+<p th:text="${htmlPageNotFoundException.getMessage()}"></p>
+
+</body>
+</html>
