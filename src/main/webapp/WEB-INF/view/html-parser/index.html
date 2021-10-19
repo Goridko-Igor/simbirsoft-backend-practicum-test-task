@@ -12,8 +12,9 @@
 <hr/>
 
 <form th:method="POST" th:action="@{/html-parser/result}" th:object="${htmlParserResult}">
-    <label for="urlAddress">URL-address HTML-page: </label>
-    <input type="text" th:field="*{urlAddress}" id="urlAddress"/>
+    <label for="url-address">URL-адрес HTML-страницы: </label>
+    <input type="url" th:field="*{urlAddress}" id="url-address" placeholder="https://www.example.com/"/>
+    <br/>
     <br/>
     <input type="submit" value="Произвести анализ HTML-страницы"/>
 </form>

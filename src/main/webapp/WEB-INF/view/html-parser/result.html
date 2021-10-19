@@ -11,13 +11,30 @@
 
 <hr/>
 
-<p th:text="${htmlParserResult.getUrlAddress()}"></p>
+<p>
+    <a th:href="@{/html-parser}">Вернуться на Главную страницу</a>
+</p>
 
-<br/>
+<h3>
+    <span>Результат анализа HTML-страницы, расположенной по URL-адресу: </span>
+    <a th:href="${htmlParserResult.getUrlAddress()}" th:text="${htmlParserResult.getUrlAddress()}"></a>
+</h3>
 
-<div th:each="wordCount : ${htmlParserResult.getWordsCount()}">
-    <p th:text="${wordCount.getWord()} - ${wordCount.getCount()}"></p>
-</div>
+<table>
+    <thead>
+    <tr>
+        <th>Слово</th>
+        <th>Количество присутствий</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="wordCount : ${htmlParserResult.getWordsCount()}">
+        <td th:text="${wordCount.getWord()}"></td>
+        <td th:text="${wordCount.getCount()}"></td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 
