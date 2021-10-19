@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.goridko_igor.exception.HtmlPageNotFoundException;
 import ru.goridko_igor.model.HtmlParserResult;
 import ru.goridko_igor.service.HtmlParserService;
 
@@ -30,8 +31,13 @@ public class HtmlParserController {
     public String parseHtml(
             @ModelAttribute("htmlParserResult") HtmlParserResult htmlParserResult,
             Model model) {
-        htmlParserResult = htmlParserService.parseHtml(htmlParserResult);
-        model.addAttribute("htmlParserResult", htmlParserResult);
-        return "html-parser/result";
+        try {
+            htmlParserResult = htmlParserService.parseHtml(htmlParserResult);
+            model.addAttribute("htmlParserResult", htmlParserResult);
+            return "html-parser/result";
+        } catch (HtmlPageNotFoundException e) {
+            model.addAttribute("htmlPageNotFoundException", e);
+            return "html-parser/html-page-not-found-exception";
+        }
     }
 }
